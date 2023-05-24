@@ -64,6 +64,14 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'anuncios' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Anuncio::class,
+        ],
+        'contatos' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Contato::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',

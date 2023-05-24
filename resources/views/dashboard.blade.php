@@ -17,8 +17,8 @@
                     </div> <!--Final Imagem de Perfil-->
                     <!--Informações de Perfil-->
                     <div class="pt-5 w-max m-auto text-center">
-                        <div class="text-base">João Marcos Bortolotti</div>
-                        <div class="font-light text-xs">Desde 22/05/2023</div>
+                        <div class="text-base">{{ Auth::user()->name }}</div>
+                        <div class="font-light text-xs">Desde {{ Auth::user()->created_at }}</div>
                     </div><!--Final Informações de Perfil-->
                     <div class="pt-5 w-max m-auto">
                         <x-primary-button class="ml-3">
