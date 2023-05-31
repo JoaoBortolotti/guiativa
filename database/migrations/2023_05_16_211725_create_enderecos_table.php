@@ -15,7 +15,9 @@ return new class extends Migration
         Schema::create('enderecos', function (Blueprint $table) {
             $table->id();
             $table->uuid()->default(Str::uuid());
-            $table->string('rua');
+            $table->string('endereco');
+            $table->string('bairro');
+            $table->string('complemento');
             $table->string('numero');
             $table->foreignId('users_id')->references('id')->on('users')
                 ->cascadeOnUpdate()

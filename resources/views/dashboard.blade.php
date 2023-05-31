@@ -91,7 +91,7 @@
 
                     <div class="absolute bottom-5 right-5">
                     <x-primary-button class="ml-3">
-                        <a href="{{ route('profile.edit') }}">Editar Anúncio</a>
+                        <a href="">Editar Anúncio</a>
                     </x-primary-button>
                     </div>
             </div><!--Final Painel Principal-->
