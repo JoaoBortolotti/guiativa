@@ -4,25 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Endereco extends Model
+class Contato extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'endereco',
-        'bairro',
-        'complemento',
-        'numero',
+        'ddd',
+        'telefone',
+        'celular',
         'user_id',
     ];
-
-    protected function cep(): HasOne
-    {
-        return $this->hasOne(CEP::class);
-    }
 
     protected function user(): BelongsToMany
     {

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('ddd');
             $table->string('telefone');
             $table->string('celular');
-            $table->foreignId('users_id')->references('id')->on('users')
+            $table->foreignId('user_id')->references('id')->on('users')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->softDeletes();

@@ -15,10 +15,10 @@ return new class extends Migration
         Schema::create('anunc__categs', function (Blueprint $table) {
             $table->id();
             $table->uuid()->default(Str::uuid());
-            $table->foreignId('anuncios_id')->references('id')->on('anuncios')
+            $table->foreignId('anuncio_id')->references('id')->on('anuncios')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->foreignId('categorias_id')->references('id')->on('categorias')
+            $table->foreignId('categoria_id')->references('id')->on('categorias')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->timestamps();

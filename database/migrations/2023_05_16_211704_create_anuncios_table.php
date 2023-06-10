@@ -17,12 +17,11 @@ return new class extends Migration
             $table->uuid()->default(Str::uuid());
             $table->string('titulo');
             $table->text('descricao');
-            $table->binary('imagem');
+            $table->string('imagem');
             $table->double('avaliacao');
-            $table->foreignId('users_id')->references('id')->on('users')
+            $table->foreignId('user_id')->references('id')->on('users')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->foreignId('contato_id')->references('id')->on('contatos');
             $table->softDeletes();
             $table->timestamps();
         });

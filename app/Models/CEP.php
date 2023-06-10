@@ -10,6 +10,13 @@ class CEP extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'cep',
+        'pais',
+        'estado',
+        'cidade',
+        'endereco_id'
+    ];
     public function endereco(): BelongsToMany
     {
         return $this->belongsToMany(Endereco::class);

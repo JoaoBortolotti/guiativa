@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid()->default(Str::uuid());
             $table->string('nome');
             $table->binary('fotos');
-            $table->foreignId('anuncios_id')->references('id')->on('anuncios')
+            $table->foreignId('anuncio_id')->references('id')->on('anuncios')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->timestamps();

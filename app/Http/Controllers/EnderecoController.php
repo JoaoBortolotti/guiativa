@@ -19,13 +19,12 @@ class EnderecoController extends Controller
                 'bairro' => $request->bairro,
                 'complemento' => $request->complemento,
                 'numero' => $request->numero,
-                'users_id' => $request->users_id
             ]);
             $user->endereco->cep->update([
                 'cep' => $request->cep,
                 'pais' => $request->pais,
                 'estado' => $request->estado,
-                'cidade' => $request->cidade,
+                'cidade' => $request->cidade
             ]);
         }else{
             $endereco = Endereco::create([
@@ -33,7 +32,7 @@ class EnderecoController extends Controller
                 'bairro' => $request->bairro,
                 'complemento' => $request->complemento,
                 'numero' => $request->numero,
-                'users_id' => $request->users_id
+                'user_id' => $user->id
             ]);
             CEP::create([
                 'cep' => $request->cep,

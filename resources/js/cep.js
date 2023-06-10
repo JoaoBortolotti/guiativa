@@ -13,6 +13,9 @@ window.meu_callback = (conteudo) => {
         document.getElementById('bairro').value=(conteudo.bairro);
         document.getElementById('cidade').value=(conteudo.localidade);
         document.getElementById('uf').value=(conteudo.uf);
+        document.getElementById('numero').value=("");
+        document.getElementById('complemento').value=("");
+        document.getElementById('pais').value=("");
     } //end if.
     else {
         //CEP não Encontrado.

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('sobre');
             $table->double('valor');
             $table->binary('fotos_produt');
-            $table->foreignId('anuncios_id')->references('id')->on('anuncios')
+            $table->foreignId('anuncio_id')->references('id')->on('anuncios')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->timestamps();

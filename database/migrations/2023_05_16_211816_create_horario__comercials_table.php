@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('dia_seman');
             $table->string('hora_inicio');
             $table->string('hora_final');
-            $table->foreignId('anuncios_id')->references('id')->on('anuncios')
+            $table->foreignId('anuncio_id')->references('id')->on('anuncios')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->timestamps();
