@@ -12,7 +12,7 @@
                 <!--Perfil-->
                 <div class="h-[300px] shadow-2xl rounded-lg bg-white relative">
                     <!--Imagem Perfil-->
-                    @if (Auth::user()->anuncio->imagem ==! null)
+                    @if (Auth::user()->anuncio ==! null)
                         <div class="w-max h-fit mx-auto pt-8" id="foto_anuncio">
                             <img class="w-28 h-28 rounded-[50%] object-cover" src="/img/events/{{ Auth::user()->anuncio->imagem }}" alt="">
                         </div>
