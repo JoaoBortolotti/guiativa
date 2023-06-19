@@ -6,7 +6,7 @@
 .rating {
     unicode-bidi: bidi-override;
     direction: rtl;
-    text-align: center;
+    text-align: left;
   }
 
   .rating input[type="radio"] {

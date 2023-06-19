@@ -12,9 +12,16 @@
                 <!--Perfil-->
                 <div class="h-[300px] shadow-2xl rounded-lg bg-white relative">
                     <!--Imagem Perfil-->
-                    <div class="w-max h-fit mx-auto pt-8" id="foto_perfil">
-                        <img class="w-28 h-28 rounded-[50%] object-cover" src="https://i.ibb.co/qJQPpJ7/4e8e96fd-e196-4433-9980-25c073e242f8.png" alt="">
-                    </div> <!--Final Imagem de Perfil-->
+                    @if (Auth::user()->anuncio->imagem ==! null)
+                        <div class="w-max h-fit mx-auto pt-8" id="foto_anuncio">
+                            <img class="w-28 h-28 rounded-[50%] object-cover" src="/img/events/{{ Auth::user()->anuncio->imagem }}" alt="">
+                        </div>
+                    @else
+                        <div class="w-max h-fit mx-auto pt-8" id="foto_perfil">
+                            <img class="w-28 h-28 rounded-[50%] object-cover" src="https://i.ibb.co/qJQPpJ7/4e8e96fd-e196-4433-9980-25c073e242f8.png" alt="">
+                        </div>
+                    @endif
+                    <!--Final Imagem de Perfil-->
                     <!--Informações de Perfil-->
                     <div class="pt-5 w-max m-auto text-center">
                         <div class="text-base">{{ Auth::user()->name }}</div>
@@ -73,7 +80,7 @@
                             <!--Nome+Estrela Anúncio-->
                             <div class="pt-2">
                                 <div class="text-2xl font-semibold">{{ Auth::user()->anuncio->titulo }}</div>
-                                <div class="text-[80%]">em <"CategoriasQueSeEnquadra"></div>
+                                <div class="text-[80%]"></div>
                                 <!--Avaliação de Estrelas-->
                                 <div class="pt-6">
                                     @if (Auth::user()->anuncio->avaliacao == 1)

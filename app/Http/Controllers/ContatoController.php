@@ -35,6 +35,6 @@ class ContatoController extends Controller
             ]);
 
         }
-        return Redirect::route('dashboard');
+        return Redirect::route('profile.edit');
     }
 }
