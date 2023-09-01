@@ -19,9 +19,8 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ProfileController::class, 'index'])->name('home');
+Route::get('/anuncio/{id}', [AnuncioController::class, 'view'])->name('anuncio.view');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
