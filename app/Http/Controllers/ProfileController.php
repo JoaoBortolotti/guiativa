@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Anuncio;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 use App\Models\User;
 
@@ -16,10 +18,22 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function index()
+    public function view($uuid)
     {
-        $users = User::all();
-        return view('welcome', ['users' => $users]);
+        $user = User::findOrFail($uuid);
+
+        return view('announcement.info', ['user' => $user]);
+    }
+
+    public function index(Request $request)
+    {
+        $query = Anuncio::/*active()->*/with(['user.contato']);
+        if(!empty($termo = $request->query('busca', null))) {
+            $termo = Str::lower($termo);
+            $query = $query->where('titulo', 'LIKE', "%$termo%")->orWhere('descricao', 'LIKE', "%$termo%");
+        }
+
+        return view('welcome', ['anuncios' => $query->get()]);
     }
 
     public function edit(Request $request): View

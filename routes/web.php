@@ -5,6 +5,7 @@ use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\EnderecoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AnuncioController;
+use App\Models\Anuncio;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [ProfileController::class, 'index'])->name('home');
-Route::get('/anuncio/{id}', [AnuncioController::class, 'view'])->name('anuncio.view');
+Route::get('/anuncio/{anuncio}', [AnuncioController::class, 'view'])->name('anuncio.view');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {

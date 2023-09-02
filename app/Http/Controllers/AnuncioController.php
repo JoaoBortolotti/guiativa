@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Redirect;
 class AnuncioController extends Controller
 {
 
-    public function view(Anuncio $anuncio)
+    public function view(Anuncio $anuncio, Request $request)
     {
         return view('announcement.info', ['anuncio' => $anuncio]);
     }
 
-    public function edit(Request $request): View
+    public function edit(Request $request)
     {
         return view('announcement', [
             'user' => $request->user(),

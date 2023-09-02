@@ -44,22 +44,22 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    protected function endereco(): HasOne
+    public function endereco(): HasOne
     {
         return $this->hasOne(Endereco::class);
     }
 
-    protected function anuncio(): HasOne
+    public function anuncio(): HasOne
     {
         return $this->hasOne(Anuncio::class);
     }
 
-    protected function contato(): HasOne
+    public function contato(): HasOne
     {
         return $this->hasOne(Contato::class);
     }
 
-    protected function plano(): HasOne
+    public function plano(): HasOne
     {
         return $this->hasOne(Plano::class);
     }
