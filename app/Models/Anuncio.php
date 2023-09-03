@@ -31,9 +31,4 @@ class Anuncio extends Model
         $query->whereHas('user.plano', fn(Builder $planQuery) => $planQuery->where('conf_pagamento', true));
 
     } */
-
-    public function getRouteKeyName(): string
-    {
-        return 'uuid';
-    }
 }

@@ -109,15 +109,20 @@
                             </div>
                         </div>
                         <div class="flex justify-center pt-6">
-                            <ul>
-                                <li>Segunda: {{ $user->horario->seg }}</li>
-                                <li>Terça: {{ $user->horario->ter }}</li>
-                                <li>Quarta: {{ $user->horario->qua }}</li>
-                                <li>Quinta: {{ $user->horario->qui }}</li>
-                                <li>Sexta: {{ $user->horario->sex }}</li>
-                                <li>Sábado: {{ $user->horario->sab }}</li>
-                                <li>Domingo: {{ $user->horario->dom }}</li>
-                            </ul>
+                            @if ($user->horario != null)
+                                <ul>
+                                    <li>Segunda: {{ $user->horario->seg }}</li>
+                                    <li>Terça: {{ $user->horario->ter }}</li>
+                                    <li>Quarta: {{ $user->horario->qua }}</li>
+                                    <li>Quinta: {{ $user->horario->qui }}</li>
+                                    <li>Sexta: {{ $user->horario->sex }}</li>
+                                    <li>Sábado: {{ $user->horario->sab }}</li>
+                                    <li>Domingo: {{ $user->horario->dom }}</li>
+                                </ul>
+                            @else
+                                Não há registro de Horários
+                            @endif
+
                         </div>
                     </div>
                 </div>
