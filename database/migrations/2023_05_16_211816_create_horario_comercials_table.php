@@ -12,14 +12,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('produtos', function (Blueprint $table) {
+        Schema::create('horario_comercials', function (Blueprint $table) {
             $table->id();
             $table->uuid()->default(Str::uuid());
-            $table->string('nome');
-            $table->text('sobre');
-            $table->double('valor');
-            $table->binary('fotos_produt');
-            $table->foreignId('anuncio_id')->references('id')->on('anuncios')
+            $table->string('dom')->nullable();
+            $table->string('seg')->nullable();
+            $table->string('ter')->nullable();
+            $table->string('qua')->nullable();
+            $table->string('qui')->nullable();
+            $table->string('sex')->nullable();
+            $table->string('sab')->nullable();
+            $table->foreignId('user_id')->references('id')->on('users')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->timestamps();
@@ -31,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('produtos');
+        Schema::dropIfExists('horario__comercials');
     }
 };

@@ -38,18 +38,6 @@
             </div>
         </div>
 
-        <div>
-            <x-input-label for="telefone" :value="__('Telefone')" />
-
-            @if ($user->contato !== null)
-                 <x-text-input id="telefone" name="telefone" type="text" class="mt-1 block w-full" :value="old('telefone', $user->contato->telefone)" required autofocus autocomplete="telefone" />
-            @else
-                 <x-text-input id="telefone" name="telefone" type="text" class="mt-1 block w-full" value=" " required autofocus autocomplete="telefone" />
-            @endif
-
-            <x-input-error class="mt-2" :messages="$errors->get('telefone')" />
-        </div>
-
 
 
         <div class="flex items-center gap-4">

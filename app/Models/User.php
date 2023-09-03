@@ -59,10 +59,9 @@ class User extends Authenticatable
         return $this->hasOne(Contato::class);
     }
 
-    public function plano(): HasOne
+    public function horario(): HasOne
     {
-        return $this->hasOne(Plano::class);
+        return $this->hasOne(Horario_comercial::class);
     }
-
 
 }

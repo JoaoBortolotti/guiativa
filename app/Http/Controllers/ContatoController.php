@@ -9,12 +9,6 @@ use Illuminate\Support\Facades\Redirect;
 
 class ContatoController extends Controller
 {
-   public function edit(Request $request): View
-    {
-        return view('contato', [
-            'user' => $request->user(),
-        ]);
-    }
 
     public function store_update(Request $request)
     {
@@ -23,13 +17,11 @@ class ContatoController extends Controller
         if($user->contato){
             $user->contato->update([
                 'ddd' => $request->ddd,
-                'telefone' => $request->telefone,
                 'celular' => $request->celular,
             ]);
         }else{
             Contato::create([
                 'ddd' => $request->ddd,
-                'telefone' => $request->telefone,
                 'celular' => $request->celular,
                 'user_id' => $user->id,
             ]);

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->id();
             $table->uuid()->default(Str::uuid());
             $table->integer('ddd');
-            $table->string('telefone');
             $table->string('celular');
             $table->foreignId('user_id')->references('id')->on('users')
                 ->cascadeOnUpdate()

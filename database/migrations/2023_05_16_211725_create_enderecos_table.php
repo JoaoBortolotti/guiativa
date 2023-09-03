@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid()->default(Str::uuid());
             $table->string('endereco');
             $table->string('bairro');
-            $table->string('complemento');
+            $table->string('complemento')->nullable();
             $table->string('numero');
             $table->foreignId('user_id')->references('id')->on('users')
                 ->cascadeOnUpdate()

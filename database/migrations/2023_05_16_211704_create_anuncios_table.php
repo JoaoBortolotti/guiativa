@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('titulo');
             $table->text('descricao');
             $table->string('imagem');
-            $table->double('avaliacao');
             $table->foreignId('user_id')->references('id')->on('users')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();

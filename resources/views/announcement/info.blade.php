@@ -15,8 +15,8 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
-        <div class="pb-12">
-            <div class="bg-blue-100 shadow-xl border-b border-gray-300">
+        <div class="">
+            <div class="bg-blue-100 border-gray-300">
                 <div class=" max-w-7xl mx-auto px-4 ">
                     <div class="flex justify-between h-16">
                         <div class="flex">
@@ -53,8 +53,8 @@
             </div>
         </div>
 
-        <main class="mx-auto max-w-4xl pt-2">
-            <div class="bg-blue-50 shadow-xl rounded-t-lg p-12">
+        <main>
+            <div class="bg-blue-100 shadow-xl rounded-t-lg p-12">
                 @if ($anuncio !== null)
                     <!--Interior-->
                     <div class="w-max m-auto flex">
@@ -90,5 +90,38 @@
                 @endif
             </div>
         </main>
+
+        <div class="pt-12 flex justify-center">
+            <div>
+                <div class="flex space-x-12 ">
+                    <div class="shadow-2xl rounded-b-lg bg-white">
+                        <div class="bg-blue-100 h-14 rounded-t-lg flex items-center indent-5">
+                            <div class="text-gray-600 font-bold text-xl">
+                                Descrição
+                            </div>
+                        </div>
+                        <textarea name="desc" id="desc" cols="60" rows="20" readonly class="border-none resize-none">{{ $anuncio->descricao }}</textarea>
+                    </div>
+                    <div class="w-60 h-72 shadow-2xl rounded-lg bg-white">
+                        <div class="bg-blue-100  h-14 top-0 rounded-t-lg flex items-center indent-5">
+                            <div class="text-gray-600 font-bold text-xl">
+                                Horário Comercial
+                            </div>
+                        </div>
+                        <div class="flex justify-center pt-6">
+                            <ul>
+                                <li>Segunda: {{ $user->horario->seg }}</li>
+                                <li>Terça: {{ $user->horario->ter }}</li>
+                                <li>Quarta: {{ $user->horario->qua }}</li>
+                                <li>Quinta: {{ $user->horario->qui }}</li>
+                                <li>Sexta: {{ $user->horario->sex }}</li>
+                                <li>Sábado: {{ $user->horario->sab }}</li>
+                                <li>Domingo: {{ $user->horario->dom }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

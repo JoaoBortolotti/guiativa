@@ -16,9 +16,9 @@
         <div>
             <x-input-label for="cep" :value="__('CEP')"/>
             @if ($user->endereco !== null)
-            <x-text-input id="cep" name="cep" type="text" class="mt-1 block w-full" :value="old('numero', $user->endereco->cep->cep)" onblur="pesquisacep(this.value);"  required autofocus autocomplete="cep" />
+            <x-text-input id="cep" name="cep" type="text" class="mt-1 block w-full" :value="old('numero', $user->endereco->cep->cep)" {{-- onblur="pesquisacep(this.value);" --}}  required autofocus autocomplete="cep" />
         @else
-            <x-text-input id="cep" name="cep" type="text" class="mt-1 block w-full" value=" "  onblur="pesquisacep(this.value);" required autofocus autocomplete="cep" />
+            <x-text-input id="cep" name="cep" type="text" class="mt-1 block w-full" value=" "  {{-- onblur="pesquisacep(this.value);" --}} required autofocus autocomplete="cep" />
         @endif
             <x-input-error class="mt-2" :messages="$errors->get('cep')" />
         </div>

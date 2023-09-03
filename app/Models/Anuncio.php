@@ -16,7 +16,6 @@ class Anuncio extends Model
         'titulo',
         'descricao',
         'imagem',
-        'avaliacao',
         'user_id',
         'contato_id'
     ];
@@ -26,11 +25,12 @@ class Anuncio extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function scopeActive(Builder $query): void
+
+    /* public function scopeActive(Builder $query): void
     {
         $query->whereHas('user.plano', fn(Builder $planQuery) => $planQuery->where('conf_pagamento', true));
 
-    }
+    } */
 
     public function getRouteKeyName(): string
     {

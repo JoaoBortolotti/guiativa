@@ -43,13 +43,13 @@
             <x-input-error class="mt-2" :messages="$errors->get('descricao')" />
         </div>
 
-        <div class="rating mt-1 block w-full">
+        {{-- <div class="rating mt-1 block w-full">
             <input type="radio" name="rating" value="5" id="star5"><label for="star5"></label>
             <input type="radio" name="rating" value="4" id="star4"><label for="star4"></label>
             <input type="radio" name="rating" value="3" id="star3"><label for="star3"></label>
             <input type="radio" name="rating" value="2" id="star2"><label for="star2"></label>
             <input type="radio" name="rating" value="1" id="star1"><label for="star1"></label>
-        </div>
+        </div> --}}
 
         <div class="flex items-center gap-4">
             @if ($user->anuncio !== null)

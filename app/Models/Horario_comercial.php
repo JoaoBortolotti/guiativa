@@ -4,15 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Contato extends Model
+class Horario_comercial extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'ddd',
-        'celular',
+        'dom',
+        'seg',
+        'ter',
+        'qua',
+        'qui',
+        'sex',
+        'sab',
         'user_id',
     ];
 

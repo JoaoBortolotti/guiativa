@@ -38,14 +38,12 @@ class AnuncioController extends Controller
                     'titulo' => $request->titulo,
                     'descricao' => $request->descricao,
                     'imagem' => $request->imagem,
-                    'avaliacao' => $request->rating,
                 ]);
             }else{
                 Anuncio::create([
                     'titulo' => $request->titulo,
                     'descricao' => $request->descricao,
                     'imagem' => $imageName,
-                    'avaliacao' => $request->rating,
                     'user_id' => $user->id,
                 ]);
 

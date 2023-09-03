@@ -34,32 +34,6 @@
                     </div>
 
                 </div><!--Final Perfil-->
-
-                <!--Pagamentos-->
-                <div class="h-[180px] shadow-2xl rounded-lg bg-white relative">
-                    <div class="bg-gray-300 shadow-xl h-10 inset-x-0 top-0 rounded-t-lg text-white font-bold text-sm flex items-center indent-5">Relatório de Pagamentos</div>
-
-                    @if (Auth::user()->plano == null)
-                        <div class="pt-10">
-                            <div class="w-max m-auto">
-                                <x-primary-button>
-                                    <a href="{{ route('plano.edit') }}">Contratar Plano</a>
-                                </x-primary-button>
-                            </div>
-                        </div>
-                    @elseif (Auth::user()->plano->conf_pagamento == 'pago')
-                        <div class="w-max m-auto flex pt-8">
-                            <div class="pr-5"><img class="h-20" src="https://i.ibb.co/ZB43sBk/validando-o-bilhete.png" alt="validando-o-bilhete"></div>
-                            <div class="pt-2">Pagamento <br> Confirmado</div>
-                        </div>
-                    @else
-                        <div class="w-max m-auto flex p-6">
-                            <div class="pr-6"><img class="h-20" src="https://i.ibb.co/WsxJmfN/conta.png" alt="validando-o-bilhete"></div>
-                            <div class="pt-4">Pagamento <br> Pendente</div>
-                        </div>
-                    @endif
-
-                </div><!--Final Pagamentos-->
             </div><!--Final Painel Lateral-->
 
             <!--Painel Principal-->
@@ -81,50 +55,6 @@
                             <div class="pt-2">
                                 <div class="text-2xl font-semibold">{{ Auth::user()->anuncio->titulo }}</div>
                                 <div class="text-80%]"> </div>
-                                <!--Avaliação de Estrelas-->
-                                <div class="pt-6">
-                                    @if (Auth::user()->anuncio->avaliacao == 1)
-                                        <div class="avaliacao">
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: gray;" class="">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: gray;" class="">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: gray;" class="">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: gray;" class="">&#9733;</span>
-                                        </div>
-                                    @elseif (Auth::user()->anuncio->avaliacao == 2)
-                                        <div class="avaliacao">
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: gray;" class="">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: gray;" class="">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: gray;" class="">&#9733;</span>
-                                        </div>
-                                    @elseif (Auth::user()->anuncio->avaliacao == 3)
-                                        <div class="avaliacao">
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: gray;" class="">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: gray;" class="">&#9733;</span>
-                                        </div>
-                                    @elseif (Auth::user()->anuncio->avaliacao == 4)
-                                        <div class="avaliacao">
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: gray;" class="">&#9733;</span>
-                                        </div>
-                                    @elseif (Auth::user()->anuncio->avaliacao == 5)
-                                        <div class="avaliacao">
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                            <span style="display: inline-block; font-size: 40px; color: yellow;">&#9733;</span>
-                                        </div>
-                                    @endif
-                                </div><!--Final Avaliação de Estrelas-->
                             </div><!--Final Nome+Estrela Anúncio-->
 
                                 <!--Iformações de Contato-->
