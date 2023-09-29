@@ -52,4 +52,6 @@ class AnuncioController extends Controller
 
         return Redirect::route('dashboard');
     }
+
+    
 }

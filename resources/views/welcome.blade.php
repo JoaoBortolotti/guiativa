@@ -16,15 +16,18 @@
     </head>
     <body>
         <div class="pb-12">
-            <div class="bg-blue-100 shadow-xl border-b border-gray-300">
+            <div class="bg-gray-900 shadow-xl border-b border-gray-300">
                 <div class=" max-w-7xl mx-auto px-4 ">
-                    <div class="flex justify-between h-16">
+                    <div class="flex justify-between h-20">
                         <div class="flex">
                             <!-- Logo -->
-                            <div class="shrink-0 flex items-center">
+                            <div class="shrink-0 flex items-center text-white hover:text-gray-300">
                                 <a href="{{ route('home') }}">
-                                    <x-application-logo class="block h-10 w-auto fill-current text-gray-800" />
+                                    <x-application-logo class="block h-10 w-auto fill-current" />
                                 </a>
+                                <h3 class="pl-5 font-bold">
+                                    Guiativa
+                                </h3>
                             </div>
 
                             <!-- Navigation Links -->
@@ -34,15 +37,15 @@
                                 </x-nav-link>
                             </div>
                         </div>
-                        <div>
+                        <div class="flex">
                             @if (Route::has('login'))
-                                <div class="top-0 sm:right-20 p-6 text-right">
+                                <div class="flex items-center sm:right-20 text-right">
                                     @auth
-                                        <a href="{{ url('/dashboard') }}" class="font-bold text-gray-700 active:text-green-50 hover:text-gray-900 hover:cursor-pointer">Dashboard</a>
+                                        <a href="{{ url('/dashboard') }}" class="font-bold text-white active:text-green-50 hover:text-gray-300 hover:cursor-pointer">Dashboard</a>
                                         @else
-                                            <a href="{{ route('login') }}" class="font-bold text-gray-700 hover:text-gray-900 hover:cursor-pointer">Entrar</a>
+                                            <a href="{{ route('login') }}" class="font-bold text-white hover:text-gray-300 hover:cursor-pointer">Entrar</a>
                                             @if (Route::has('register'))
-                                                <a href="{{ route('register') }}" class="ml-4 font-bold text-gray-700 hover:text-gray-900 hover:cursor-pointer">Registrar</a>
+                                                <a href="{{ route('register') }}" class="font-bold text-gray-700 hover:text-gray-300 hover:cursor-pointer">Registrar</a>
                                             @endif
                                     @endauth
                                 </div>
@@ -56,13 +59,13 @@
         <!--Aba de Busca-->
         <div class="py-12">
             <div class="mx-auto max-w-4xl">
-                <div class="font-bold text-3xl">O que deseja buscar?</div>
+                <div class="font-bold text-3xl ">O que deseja buscar?</div>
                 <div class="p-5">
                     <form action="/" method="GET">
-                        <div class="flex justify-center">
-                            <input type="text" name="busca" id="busca" placeholder="Digite aqui..." class="w-4/6 h-16 bg-blue-50 rounded-l-full border-gray-800 pl-8">
+                        <div class="flex justify-center ">
+                            <input type="text" name="busca" id="busca" placeholder="Digite aqui..." class="w-4/6 h-16 bg-gray-100 rounded-l-full border-gray-800 pl-8 shadow-lg">
 
-                            <button class="bg-gray-800 rounded-r-full h-16">
+                            <button class="bg-gray-900 rounded-r-full h-16 shadow-lg">
                                     <svg width="60" height="40" viewBox="0 -15 45 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M42 42L30.913 31.5322M35.8653 19.3048C35.8653 23.8943 34.0813 28.2959 30.9059 31.5411C27.7304 34.7864 23.4235 36.6096 18.9327 36.6096C14.4418 36.6096 10.1349 34.7864 6.95946 31.5411C3.78397 28.2959 2 23.8943 2 19.3048C2 14.7153 3.78397 10.3137 6.95946 7.06846C10.1349 3.82318 14.4418 2 18.9327 2C23.4235 2 27.7304 3.82318 30.9059 7.06846C34.0813 10.3137 35.8653 14.7153 35.8653 19.3048Z" stroke="white" stroke-width="4" stroke-linecap="round"/>
                                 </svg>
@@ -77,7 +80,7 @@
         @foreach ($anuncios as $anuncio)
                 <main class="mx-auto max-w-4xl pt-2">
                     <a href="{{ route('anuncio.view', ['anuncio' =>$anuncio]) }}">
-                        <div class="bg-blue-50 shadow-xl rounded-t-lg p-12">
+                        <div class="bg-gray-100 shadow-xl rounded-t-lg p-12">
                             <!--Interior-->
                             <div class="w-max m-auto flex">
                                 <!--Imagem Principal do Anúncio-->

@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-white leading-tight">
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
@@ -38,7 +38,7 @@
 
             <!--Painel Principal-->
             <div class="w-[1000px] h-[300px] shadow-2xl rounded-lg bg-white relative">
-                <div class="bg-gray-300 shadow-xl h-14 inset-x-0 top-0 rounded-t-lg flex items-center indent-5">
+                <div class="bg-gray-900 shadow-xl h-14 inset-x-0 top-0 rounded-t-lg flex items-center indent-5">
                     <div class="text-white font-bold text-xl">
                         Prévia e Edição do Anúncio
                     </div>
@@ -72,7 +72,7 @@
                         </div><!--Final Interior-->
 
                         <div class="absolute bottom-5 right-5">
-                            <x-primary-button class="ml-3">
+                            <x-primary-button class="ml-3 bg-gray-900">
                                 <a href="{{ route('anuncio.edit') }}">Editar Anúncio</a>
                             </x-primary-button>
                         </div>
@@ -85,7 +85,7 @@
                         </div>
 
                         <div class="absolute bottom-5 right-5">
-                            <x-primary-button class="ml-3">
+                            <x-primary-button class="ml-3 bg-gray-900">
                                 @if (Auth::user()->plano !== null)
                                     <a href="{{ route('anuncio.edit') }}">Criar Anúncio</a>
                                 @else
