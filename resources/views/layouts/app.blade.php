@@ -32,7 +32,8 @@
                 {{ $slot }}
             </main>
 
-            @include('components.bottom_bar')
+            @include('layouts.bottom_bar')
         </div>
+        @livewireScripts
     </body>
 </html>
