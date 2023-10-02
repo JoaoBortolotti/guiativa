@@ -112,5 +112,7 @@
                     </a>
                 </main>
         @endforeach
+
+        @include('layouts.bottom_bar')
     </body>
 </html>
