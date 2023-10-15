@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Anuncio;
+use App\Models\Contato;
+use App\Models\Horario_comercial;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Redirect;
@@ -37,7 +39,7 @@ class AnuncioController extends Controller
                 $user->anuncio->update([
                     'titulo' => $request->titulo,
                     'descricao' => $request->descricao,
-                    'imagem' => $request->imagem,
+                    'imagem' => $imageName,
                 ]);
             }else{
                 Anuncio::create([
@@ -48,10 +50,47 @@ class AnuncioController extends Controller
                 ]);
 
             }
+
+            if($user->contato){
+                $user->contato->update([
+                    'ddd' => $request->ddd,
+                    'celular' => $request->celular,
+                ]);
+            }else{
+                Contato::create([
+                    'ddd' => $request->ddd,
+                    'celular' => $request->celular,
+                    'user_id' => $user->id,
+                ]);
+
+            }
+
+            if($user->horario_comercial){
+                $user->horario_comercial->update([
+                    'dom' => $request->dom,
+                    'seg' => $request->seg,
+                    'ter' => $request->ter,
+                    'qua' => $request->qua,
+                    'qui' => $request->qui,
+                    'sex' => $request->sex,
+                    'sab' => $request->sab,
+                ]);
+            }else{
+                Horario_comercial::create([
+                    'dom' => $request->dom,
+                    'seg' => $request->seg,
+                    'ter' => $request->ter,
+                    'qua' => $request->qua,
+                    'qui' => $request->qui,
+                    'sex' => $request->sex,
+                    'sab' => $request->sab,
+                    'user_id' => $user->id
+                ]);
+            }
         }
 
-        return Redirect::route('dashboard');
+        return Redirect::route('anuncio.edit');
     }
 
-    
+
 }

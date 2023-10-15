@@ -1,6 +1,7 @@
 import './bootstrap';
 import './cep';
 import './estrelas';
+import './imagem';
 
 import Alpine from 'alpinejs';
 

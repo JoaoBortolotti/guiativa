@@ -8,9 +8,9 @@
                     <a href="{{ route('home') }}">
                         <x-application-logo class="block h-10 w-auto fill-current" />
                     </a>
-                    <h3 class="pl-5 font-bold">
+                    <div class="pl-6 font-bold">
                         Guiativa
-                    </h3>
+                    </div>
                 </div>
 
                 <!-- Navigation Links -->
