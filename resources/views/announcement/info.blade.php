@@ -147,7 +147,7 @@
         </main>
         @include('layouts.bottom_bar')
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACthNzOfWzNBLJjjUIdqcntF2-6J9UsYI&callback=carregaMapa&libraries=maps,marker&v=beta" async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=&callback=carregaMapa&libraries=maps,marker&v=beta" async defer></script>
 
         <script>
             window.carregaMapa = () => {
