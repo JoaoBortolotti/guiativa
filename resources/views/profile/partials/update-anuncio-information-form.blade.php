@@ -11,7 +11,7 @@
 
     <form method="post" action="{{ route('anuncio.store_update')}}" class="mt-6 mb-6 space-y-6 flex" enctype="multipart/form-data">
         @csrf
-        @method('patch')
+        @method('post')
 
         <div class="flex justify-center pt-6">
             <label id="picture" for="imagem" tabindex="0" class="w-52 h-52 rounded-lg bg-gray-300 flex justify-center items-center border-2 border-dashed border-gray-500 cursor-pointer font-sans hover:bg-gray-200 transition-colors overflow-hidden">
@@ -153,18 +153,7 @@
             </div>
         </div>
 
-
-        {{-- <div class="rating mt-1 block w-full">
-            <input type="radio" name="rating" value="5" id="star5"><label for="star5"></label>
-            <input type="radio" name="rating" value="4" id="star4"><label for="star4"></label>
-            <input type="radio" name="rating" value="3" id="star3"><label for="star3"></label>
-            <input type="radio" name="rating" value="2" id="star2"><label for="star2"></label>
-            <input type="radio" name="rating" value="1" id="star1"><label for="star1"></label>
-        </div> --}}
-
-
-
-        <div class="flex items-center absolute bottom-[300px] right-96">
+        <div class="flex items-center absolute bottom-[270px] right-96">
             @if ($user->anuncio !== null)
                 <x-primary-button>{{ __('Atualizar') }}</x-primary-button>
             @else
@@ -182,4 +171,15 @@
         </div>
 
     </form>
+
+    <form method="post" action="{{ route('anuncio.destroy')}}" class="flex items-center absolute bottom-[270px] right-[500px]" enctype="multipart/form-data>">
+        @csrf
+        @method('delete')
+        <div>
+                <x-danger-button>{{ __('Excluir') }}</x-danger-button>
+        </div>
+
+    </form>
+
+
 </section>

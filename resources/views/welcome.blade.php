@@ -59,7 +59,7 @@
         <!--Aba de Busca-->
         <div class="py-12">
             <div class="mx-auto max-w-4xl">
-                <div class="font-bold text-3xl ">O que deseja buscar?</div>
+                <div class="font-bold text-3xl">O que deseja buscar?</div>
                 <div class="p-5">
                     <form action="/" method="GET">
                         <div class="flex justify-center ">

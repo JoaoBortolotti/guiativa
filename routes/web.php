@@ -36,7 +36,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
     Route::get('/profile/anuncio', [AnuncioController::class, 'edit'])->name('anuncio.edit');
-    Route::patch('/profile/anuncio', [AnuncioController::class, 'store_update'])->name('anuncio.store_update');
+    Route::post('/profile/anuncio/create', [AnuncioController::class, 'store_update'])->name('anuncio.store_update');
+    Route::delete('/profile/anuncio/delete',[AnuncioController::class, 'destroy'])->name('anuncio.destroy');
 
 });
 

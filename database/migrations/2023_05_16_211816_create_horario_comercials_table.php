@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('qui')->nullable();
             $table->string('sex')->nullable();
             $table->string('sab')->nullable();
-            $table->foreignId('user_id')->references('id')->on('users')
+            $table->foreignId('anuncio_id')->references('id')->on('anuncios')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->timestamps();

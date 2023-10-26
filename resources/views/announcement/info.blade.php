@@ -101,28 +101,44 @@
                                     Descrição
                                 </div>
                             </div>
+
                             <textarea name="desc" id="desc" cols="60" rows="20" readonly class="border-none resize-none indent-10 m-5">{{ $anuncio->descricao }}</textarea>
                         </div>
-                        <div class="w-60 h-72 shadow-2xl rounded-lg bg-white">
-                            <div class="bg-gray-900 h-14 top-0 rounded-t-lg flex items-center indent-5">
-                                <div class="text-white font-bold text-xl">
-                                    Horário Comercial
+                        <div class="flex flex-col">
+
+                            <div class="w-60 h-72 shadow-2xl rounded-lg bg-white">
+                                <div class="bg-gray-900 h-14 top-0 rounded-t-lg flex items-center indent-5">
+                                    <div class="text-white font-bold text-xl">
+                                        Horário Comercial
+                                    </div>
+                                </div>
+                                <div class="flex justify-center pt-6">
+                                    @if ($user->horario != null)
+                                        <ul class="">
+                                            <li class="flex"><h3 class="font-bold pr-1">Segunda:</h3> {{ $user->horario->seg }}</li>
+                                            <li class="flex"><h3 class="font-bold pr-1">Terça:</h3> {{ $user->horario->ter }}</li>
+                                            <li class="flex"><h3 class="font-bold pr-1">Quarta:</h3> {{ $user->horario->qua }}</li>
+                                            <li class="flex"><h3 class="font-bold pr-1">Quinta:</h3> {{ $user->horario->qui }}</li>
+                                            <li class="flex"><h3 class="font-bold pr-1">Sexta:</h3> {{ $user->horario->sex }}</li>
+                                            <li class="flex"><h3 class="font-bold pr-1">Sábado:</h3> {{ $user->horario->sab }}</li>
+                                            <li class="flex"><h3 class="font-bold pr-1">Domingo:</h3> {{ $user->horario->dom }}</li>
+                                        </ul>
+                                    @else
+                                        Não há registro de Horários
+                                    @endif
                                 </div>
                             </div>
-                            <div class="flex justify-center pt-6">
-                                @if ($user->horario != null)
-                                    <ul class="">
-                                        <li class="flex"><h3 class="font-bold pr-1">Segunda:</h3> {{ $user->horario->seg }}</li>
-                                        <li class="flex"><h3 class="font-bold pr-1">Terça:</h3> {{ $user->horario->ter }}</li>
-                                        <li class="flex"><h3 class="font-bold pr-1">Quarta:</h3> {{ $user->horario->qua }}</li>
-                                        <li class="flex"><h3 class="font-bold pr-1">Quinta:</h3> {{ $user->horario->qui }}</li>
-                                        <li class="flex"><h3 class="font-bold pr-1">Sexta:</h3> {{ $user->horario->sex }}</li>
-                                        <li class="flex"><h3 class="font-bold pr-1">Sábado:</h3> {{ $user->horario->sab }}</li>
-                                        <li class="flex"><h3 class="font-bold pr-1">Domingo:</h3> {{ $user->horario->dom }}</li>
-                                    </ul>
-                                @else
-                                    Não há registro de Horários
-                                @endif
+                            <div class="mt-5 w-60 h-72 shadow-2xl rounded-lg bg-white">
+                                <div class="bg-gray-900 h-12 top-0 rounded-t-lg flex items-center indent-5">
+                                    <div class="text-white font-bold text-xl">
+                                        Localização
+                                    </div>
+                                </div>
+                                <div class="flex justify-center pt-2">
+                                    <div class="w-56 h-56 bg-gray-300" id="map">
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -130,5 +146,14 @@
             </div>
         </main>
         @include('layouts.bottom_bar')
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACthNzOfWzNBLJjjUIdqcntF2-6J9UsYI&callback=carregaMapa&libraries=maps,marker&v=beta" async defer></script>
+
+        <script>
+            window.carregaMapa = () => {
+                var endereco = '{{ $user->endereco->enderecoMaps }}';
+                initMap(endereco);
+            }
+        </script>
     </body>
 </html>

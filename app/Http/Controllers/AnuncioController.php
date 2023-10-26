@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use App\Models\Anuncio;
 use App\Models\Contato;
 use App\Models\Horario_comercial;
@@ -90,6 +91,13 @@ class AnuncioController extends Controller
         }
 
         return Redirect::route('anuncio.edit');
+    }
+
+    public function destroy(Request $request):RedirectResponse
+    {
+        $anuncio = $request->user()->anuncio;
+        $anuncio->delete();
+        return Redirect::to('Dashboard');
     }
 
 
