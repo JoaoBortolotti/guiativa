@@ -32,8 +32,7 @@
                         @endforeach
                     </section>
                     <div class="pt-10">
-                        <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"data-preference-id="137501632-01e8ca5f-da7a-4326-b2a7-b8b935545353" data-source="button"></script>                    </div>
-                    </div>
+                        <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"data-preference-id="137501632-add4313c-bfb2-4732-b59c-c1957292aa34" data-source="button"></script>                    </div>
         </div>
     </main>
 </x-app-layout>
