@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Horario_comercial;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class HorarioController extends Controller
 {
     public function store_update(Request $request)
     {
+        $anuncio = $request->user()->anuncio;
         $user = $request->user();
 
-        if($user->horario_comercial){
-            $user->horario_comercial->update([
+        if ($anuncio) {
+            $anuncio->horario->update([
                 'dom' => $request->dom,
                 'seg' => $request->seg,
                 'ter' => $request->ter,
@@ -22,7 +23,7 @@ class HorarioController extends Controller
                 'sex' => $request->sex,
                 'sab' => $request->sab,
             ]);
-        }else{
+        } else {
             Horario_comercial::create([
                 'dom' => $request->dom,
                 'seg' => $request->seg,
@@ -31,9 +32,10 @@ class HorarioController extends Controller
                 'qui' => $request->qui,
                 'sex' => $request->sex,
                 'sab' => $request->sab,
-                'user_id' => $user->id
+                'user_id' => $user->id,
             ]);
         }
+
         return Redirect::route('dashboard');
     }
 }

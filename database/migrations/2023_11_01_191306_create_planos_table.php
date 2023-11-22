@@ -12,19 +12,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('horario_comercials', function (Blueprint $table) {
+        Schema::create('planos', function (Blueprint $table) {
             $table->id();
             $table->uuid()->default(Str::uuid());
-            $table->string('dom')->nullable();
-            $table->string('seg')->nullable();
-            $table->string('ter')->nullable();
-            $table->string('qua')->nullable();
-            $table->string('qui')->nullable();
-            $table->string('sex')->nullable();
-            $table->string('sab')->nullable();
+            $table->string('status_pagamento');
             $table->foreignId('user_id')->references('id')->on('users')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -34,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('horario__comercials');
+        Schema::dropIfExists('planos');
     }
 };

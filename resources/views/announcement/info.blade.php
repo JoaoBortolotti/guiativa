@@ -14,7 +14,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
+    <body class="static">
         <div class="pb-12">
             <div class="bg-gray-900 shadow-xl border-b border-gray-300">
                 <div class=" max-w-7xl mx-auto px-4 ">
@@ -81,7 +81,7 @@
 
                                 @if ($user->contato !== null && $user->endereco !== null)
                                     <h6 class="text-sm">Telefone: {{ $user->contato->ddd }} - {{ $user->contato->celular }}</h6>
-                                    <h6 class="text-sm">Endereço: {{ $user->endereco->endereco }}, nº {{ $user->endereco->numero }}</h6>
+                                    <h6 class="text-sm">Endereço: {{ $user->endereco->rua }}, nº {{ $user->endereco->numero }}</h6>
                                     <h6 class="text-sm">Email: {{ $user->email }} </h6>
                                 @else
                                     <h6 class="text-sm">Telefone: </h6>
@@ -135,8 +135,20 @@
                                     </div>
                                 </div>
                                 <div class="flex justify-center pt-2">
-                                    <div class="w-56 h-56 bg-gray-300" id="map">
-                                    </div>
+                                    @if ($user->endereco != null)
+                                        <div class="w-56 h-56 bg-gray-300" id="map">
+                                        </div>
+                                        <script>
+                                            window.carregaMapa = () => {
+                                                var endereco = '{{ $user->endereco->enderecoMaps }}';
+                                                initMap(endereco);
+                                            }
+                                        </script>
+                                    @else
+                                        <div class=" flex items-center p-10">
+                                            Sem Localização
+                                        </div>
+                                    @endif
                                 </div>
 
                             </div>
@@ -147,13 +159,7 @@
         </main>
         @include('layouts.bottom_bar')
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=&callback=carregaMapa&libraries=maps,marker&v=beta" async defer></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACthNzOfWzNBLJjjUIdqcntF2-6J9UsYI&callback=carregaMapa&libraries=maps,marker&v=beta" async defer></script>
 
-        <script>
-            window.carregaMapa = () => {
-                var endereco = '{{ $user->endereco->enderecoMaps }}';
-                initMap(endereco);
-            }
-        </script>
     </body>
 </html>

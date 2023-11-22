@@ -24,15 +24,15 @@
         </div>
         <div class="flex space-x-2">
             <div>
-                <x-input-label for="endereco" :value="__('Endereço')" />
+                <x-input-label for="rua" :value="__('Rua')" />
 
                 @if ($user->endereco !== null)
-                    <x-text-input id="rua" name="endereco" type="text" class="mt-1 block w-[350px]" :value="old('numero', $user->endereco->endereco)" required autofocus autocomplete="endereco" />
+                    <x-text-input id="rua" name="rua" type="text" class="mt-1 block w-[350px]" :value="old('rua', $user->endereco->rua)" required autofocus autocomplete="rua" />
                 @else
-                    <x-text-input id="rua" name="endereco" type="text" class="mt-1 block w-[350px]" value=" " required autofocus autocomplete="endereco" />
+                    <x-text-input id="rua" name="rua" type="text" class="mt-1 block w-[350px]" value=" " required autofocus autocomplete="rua" />
                 @endif
 
-                <x-input-error class="mt-2" :messages="$errors->get('endereco')" />
+                <x-input-error class="mt-2" :messages="$errors->get('rua')" />
             </div>
             <div>
                 <x-input-label for="numero" :value="__('Número')" />
@@ -50,9 +50,9 @@
             <x-input-label for="complemento" :value="__('Complemento')" />
 
             @if ($user->endereco !== null)
-                 <x-text-input id="complemento" name="complemento" type="text" class="mt-1 block w-full" :value="old('compemento', $user->endereco->complemento)" required autofocus autocomplete="complemento" />
+                 <x-text-input id="complemento" name="complemento" type="text" class="mt-1 block w-full" :value="old('compemento', $user->endereco->complemento)" autofocus autocomplete="complemento" />
             @else
-                 <x-text-input id="complemento" name="complemento" type="text" class="mt-1 block w-full" value=" " required autofocus autocomplete="complemento" />
+                 <x-text-input id="complemento" name="complemento" type="text" class="mt-1 block w-full" value=" " autofocus autocomplete="complemento" />
             @endif
 
             <x-input-error class="mt-2" :messages="$errors->get('complemento')" />
@@ -95,9 +95,9 @@
                 <x-input-label for="estado" :value="__('Estado')" />
 
                 @if ($user->endereco !== null)
-                    <x-text-input id="uf" name="estado" type="text" class="mt-1 block w-20" :value="old('estado', $user->endereco->cep->estado)" required autofocus autocomplete="estado" />
+                    <x-text-input id="uf" name="estado" type="text" class="mt-1 block w-20" :value="old('estado', $user->endereco->cep->estado)" required autofocus autocomplete="estado" maxlength="2"/>
                 @else
-                    <x-text-input id="uf" name="estado" type="text" class="mt-1 block w-20" value=" " required autofocus autocomplete="estado" />
+                    <x-text-input id="uf" name="estado" type="text" class="mt-1 block w-20" value=" " required autofocus autocomplete="estado" maxlength="2"/>
                 @endif
 
                 <x-input-error class="mt-2" :messages="$errors->get('estado')" />

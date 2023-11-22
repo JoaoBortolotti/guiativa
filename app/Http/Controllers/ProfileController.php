@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Anuncio;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
-use App\Models\User;
-
 
 class ProfileController extends Controller
 {
@@ -27,11 +26,16 @@ class ProfileController extends Controller
 
     public function index(Request $request)
     {
-        $query = Anuncio::/*active()->*/with(['user.contato']);
-        if(!empty($termo = $request->query('busca', null))) {
+        $query = Anuncio::with(['user.contato', 'user.plano']);
+        if (! empty($termo = $request->query('busca', null))) {
             $termo = Str::lower($termo);
-            $query = $query->where('titulo', 'LIKE', "%$termo%")->orWhere('descricao', 'LIKE', "%$termo%");
+            $query = $query->where('titulo', 'LIKE', "%$termo%")
+                ->orWhere('descricao', 'LIKE', "%$termo%");
         }
+
+        $query = $query->whereHas('user.plano', function ($q) {
+            $q->where('status_pagamento', 'pago');
+        });
 
         return view('welcome', ['anuncios' => $query->get()]);
     }

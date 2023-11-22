@@ -15,10 +15,10 @@ return new class extends Migration
         Schema::create('enderecos', function (Blueprint $table) {
             $table->id();
             $table->uuid()->default(Str::uuid());
-            $table->string('endereco');
+            $table->string('rua');
             $table->string('bairro');
             $table->string('complemento')->nullable();
-            $table->string('numero');
+            $table->integer('numero');
             $table->foreignId('user_id')->references('id')->on('users')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();

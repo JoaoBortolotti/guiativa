@@ -13,17 +13,17 @@ class Endereco extends Model
     use HasFactory;
 
     protected $fillable = [
-        'endereco',
+        'rua',
         'bairro',
         'complemento',
         'numero',
         'user_id',
     ];
 
-    protected function enderecoMaps() : Attribute
+    protected function enderecoMaps(): Attribute
     {
         return Attribute::make(
-            get: fn()=> $this->endereco.','.$this->numero.','.$this->cep->cidade
+            get: fn () => $this->rua.','.$this->numero.','.$this->cep->cidade
         );
     }
 

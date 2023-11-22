@@ -17,13 +17,13 @@
         @yield('scripts')
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-[85vh] bg-white">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-gray-900 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-7xl mx-auto py-6 px-4">
                         {{ $header }}
                     </div>
                 </header>
@@ -33,9 +33,7 @@
             <main>
                 {{ $slot }}
             </main>
-
-            @include('layouts.bottom_bar')
         </div>
-        @livewireScripts
+        @include('layouts.bottom_bar')
     </body>
 </html>

@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Horario_comercial extends Model
@@ -22,7 +21,7 @@ class Horario_comercial extends Model
         'user_id',
     ];
 
-    protected function user(): BelongsToMany
+    public function user(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
     }

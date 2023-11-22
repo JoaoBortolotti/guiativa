@@ -18,9 +18,9 @@
                 <x-input-label for="ddd" :value="__('DDD')" />
 
                 @if ($user->contato !== null)
-                    <x-text-input id="ddd" name="ddd" type="text" class="mt-1 block w-20" :value="old('ddd', $user->contato->ddd)" required autofocus autocomplete="ddd" />
+                    <x-text-input id="ddd" name="ddd" type="text" class="mt-1 block w-20" :value="old('ddd', $user->contato->ddd)" required autofocus autocomplete="ddd" maxlength="2" />
                 @else
-                    <x-text-input id="ddd" name="ddd" type="text" class="mt-1 block w-20" value=" " required autofocus autocomplete="ddd" />
+                    <x-text-input id="ddd" name="ddd" type="text" class="mt-1 block w-20" value=" " required autofocus autocomplete="ddd" maxlength="2" />
                 @endif
 
                 <x-input-error class="mt-2" :messages="$errors->get('ddd')" />

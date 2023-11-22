@@ -6,20 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class CEP extends Model
+class Plano extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'cep',
-        'pais',
-        'estado',
-        'cidade',
-        'endereco_id',
+        'status_pagamento',
+        'user_id',
     ];
 
-    public function endereco(): BelongsToMany
+    public function user(): BelongsToMany
     {
-        return $this->belongsToMany(Endereco::class);
+        return $this->belongsToMany(User::class);
     }
 }
