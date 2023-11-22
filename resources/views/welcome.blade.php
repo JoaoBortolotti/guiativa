@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Home</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -79,7 +79,7 @@
 
                 <!--foreach de Anúncios-->
                 @foreach ($anuncios as $anuncio)
-                    @if ($anuncio->user->plano->status_pagamento == "pago")
+                    @if ($anuncio->user->plano->status_pagamento == "pago" && $anuncio->user?->plano->updated_at->addDays(30)->isFuture())
                         <main class="mx-auto max-w-4xl pt-2">
                             <a href="{{ route('anuncio.view', ['anuncio' =>$anuncio]) }}">
                                 <div class="bg-gray-100 shadow-xl rounded-t-lg p-12">
